@@ -1,3 +1,4 @@
+
 import weka.core.Capabilities;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -6,7 +7,7 @@ import weka.core.Instances;
  * University of Central Florida
  * CAP4630 Artifical Intelligence
  * Multi-Class Vector Perceptron Classifier Class
- * Barath Tirumala Fall 2018
+ * Author: Barath Tirumala
  */
 public class MulticlassPerceptron implements weka.classifiers.Classifier {
     private Instances data;
@@ -28,7 +29,6 @@ public class MulticlassPerceptron implements weka.classifiers.Classifier {
         data = new Instances(instances);
         double correction;
         int predictedClass, correctClass, numAttributes = data.numAttributes();
-
         weights = new double[data.numClasses()][numAttributes];
 
 
@@ -42,6 +42,7 @@ public class MulticlassPerceptron implements weka.classifiers.Classifier {
                 if(debug) {
                     System.out.println("\n\tDEBUG\t predictedClass = " + predictedClass + ", correctClass = " + inst.classValue());
                 }
+
                 if (predictedClass != correctClass) {
                     System.out.print("0");
 
@@ -143,18 +144,7 @@ public class MulticlassPerceptron implements weka.classifiers.Classifier {
     private void printHeader() {
         System.out.println("University of Central Florida");
         System.out.println("CAP4630 Artifical Intelligence - Fall 2018");
-        System.out.println("Multi-Class Perceptron Classifier by Barath Tirumala\n");
-    }
-
-
-    @Override
-    public Capabilities getCapabilities() {
-        return null;
-    }
-
-    @Override
-    public double classifyInstance(Instance instance) {
-        return 0;
+        System.out.println("Multi-Class Perceptron by Barath Tirumala\n");
     }
 
     @Override
@@ -172,4 +162,13 @@ public class MulticlassPerceptron implements weka.classifiers.Classifier {
         return result;
     }
 
+    @Override
+    public Capabilities getCapabilities() {
+        return null;
+    }
+
+    @Override
+    public double classifyInstance(Instance instance) {
+        return 0;
+    }
 }
